@@ -45,7 +45,7 @@ def test_todo():
     assert str(todo4) == "[ ] Clean room"
 
     assert todo2 == todo4
-    assert todo1 == todo2
+    assert not todo1 == todo2
     assert not todo4.done
 
     todo1.done = True
