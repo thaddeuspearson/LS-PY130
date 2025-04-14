@@ -71,6 +71,10 @@ class TodoList:
     def all_done(self) -> bool:
         return all(todo.done for todo in self.todos)
 
+    def each(self, callback) -> None:
+        for todo in self.todos:
+            callback(todo)
+
 
 def setup():
     todo1 = Todo('Buy milk')
@@ -247,6 +251,23 @@ def step_10():
     print(todo_list)
 
 
+def step_11():
+    print(line(11))
+    todo_list = setup()
+
+    todo_list.mark_all_undone()
+    print(todo_list)
+
+    def done_if_y_in_title(todo):
+        if 'y' in todo.title:
+            todo.done = True
+
+    todo_list.each(done_if_y_in_title)
+    print(todo_list)
+
+    todo_list.each(lambda todo: print('>>>', todo))
+
+
 def tests():
     empty_todo_list = TodoList('Nothing Doing')
     step_1()
@@ -259,6 +280,7 @@ def tests():
     step_8()
     step_9(empty_todo_list)
     step_10()
+    step_11()
 
 
 if __name__ == "__main__":
