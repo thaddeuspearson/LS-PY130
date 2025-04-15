@@ -85,6 +85,9 @@ class TodoList:
         )
         return new_list
 
+    def find_by_title(self, title: str):
+        return self.select(lambda todo: todo.title == title).todos[0]
+
 
 def setup():
     todo1 = Todo('Buy milk')
@@ -290,6 +293,25 @@ def step_12():
     print(todo_list.select(lambda todo: todo.done))
 
 
+def step_13():
+    print(line(13))
+    todo_list = setup()
+
+    todo_list.add(Todo('Clean room'))
+    print(todo_list)
+
+    found = todo_list.find_by_title('Go to gym')
+    print(found)
+
+    found = todo_list.find_by_title('Clean room')
+    print(found)
+
+    try:
+        todo_list.find_by_title('Feed cat')
+    except IndexError:
+        print('Expected IndexError: Got it!')
+
+
 def tests():
     empty_todo_list = TodoList('Nothing Doing')
     step_1()
@@ -304,6 +326,7 @@ def tests():
     step_10()
     step_11()
     step_12()
+    step_13()
 
 
 if __name__ == "__main__":
