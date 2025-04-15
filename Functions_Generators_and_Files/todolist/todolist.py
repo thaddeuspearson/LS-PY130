@@ -3,14 +3,14 @@ from todo import Todo
 
 class TodoList:
     """collection class for Todo instances"""
-    HEADING = "----- Today's Todos -----\n"
 
     def __init__(self, title: str) -> None:
         self._title = title
         self.todos = []
 
     def __str__(self):
-        return TodoList.HEADING + "\n".join(str(todo) for todo in self.todos)
+        heading = f"----- {self.title} -----\n"
+        return heading + "\n".join(str(todo) for todo in self.todos)
 
     def __len__(self):
         return len(self.todos)
@@ -87,6 +87,12 @@ class TodoList:
 
     def find_by_title(self, title: str):
         return self.select(lambda todo: todo.title == title).todos[0]
+
+    def done_todos(self):
+        return self.select(lambda todo: todo.done)
+
+    def undone_todos(self):
+        return self.select(lambda todo: not todo.done)
 
 
 def setup():
@@ -312,6 +318,23 @@ def step_13():
         print('Expected IndexError: Got it!')
 
 
+def step_14(empty_todo_list):
+    print(line(14))
+    todo_list = setup()
+
+    done = todo_list.done_todos()
+    print(done)
+
+    undone = todo_list.undone_todos()
+    print(undone)
+
+    done = empty_todo_list.done_todos()
+    print(done)
+
+    undone = empty_todo_list.undone_todos()
+    print(undone)
+
+
 def tests():
     empty_todo_list = TodoList('Nothing Doing')
     step_1()
@@ -327,6 +350,7 @@ def tests():
     step_11()
     step_12()
     step_13()
+    step_14(empty_todo_list)
 
 
 if __name__ == "__main__":
