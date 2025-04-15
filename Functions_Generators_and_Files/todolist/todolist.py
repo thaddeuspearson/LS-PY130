@@ -95,11 +95,7 @@ class TodoList:
         return self.select(lambda todo: not todo.done)
 
     def mark_done(self, title: str) -> None:
-        self.each(
-            lambda todo: todo.done
-            if todo.title == title
-            else None
-        )
+        self.find_by_title(title).done = True
 
 
 def setup():
