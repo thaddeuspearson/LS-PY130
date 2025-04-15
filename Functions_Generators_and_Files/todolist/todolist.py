@@ -75,6 +75,16 @@ class TodoList:
         for todo in self.todos:
             callback(todo)
 
+    def select(self, callback):
+        new_list = TodoList(self.title)
+
+        self.each(
+            lambda todo:
+            new_list.add(todo) if callback(todo)
+            else None
+        )
+        return new_list
+
 
 def setup():
     todo1 = Todo('Buy milk')
@@ -268,6 +278,18 @@ def step_11():
     todo_list.each(lambda todo: print('>>>', todo))
 
 
+def step_12():
+    print(line(12))
+    todo_list = setup()
+
+    def y_in_title(todo):
+        return 'y' in todo.title
+
+    print(todo_list.select(y_in_title))
+
+    print(todo_list.select(lambda todo: todo.done))
+
+
 def tests():
     empty_todo_list = TodoList('Nothing Doing')
     step_1()
@@ -281,6 +303,7 @@ def tests():
     step_9(empty_todo_list)
     step_10()
     step_11()
+    step_12()
 
 
 if __name__ == "__main__":
