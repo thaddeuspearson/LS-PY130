@@ -60,8 +60,10 @@ class TodoList:
         self.todos.pop(index)
 
     def mark_all_done(self) -> None:
-        for idx in range(len(self)):
-            self.mark_done_at(idx)
+        self.each(lambda todo: setattr(todo, 'done', True))
+
+    def make_all_undone(self) -> None:
+        self.each(lambda todo: setattr(todo, 'done', False))
 
     def mark_all_undone(self) -> None:
         if self.todos:
