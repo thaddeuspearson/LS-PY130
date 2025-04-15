@@ -94,6 +94,13 @@ class TodoList:
     def undone_todos(self):
         return self.select(lambda todo: not todo.done)
 
+    def mark_done(self, title: str) -> None:
+        self.each(
+            lambda todo: todo.done
+            if todo.title == title
+            else None
+        )
+
 
 def setup():
     todo1 = Todo('Buy milk')
@@ -335,6 +342,19 @@ def step_14(empty_todo_list):
     print(undone)
 
 
+def step_15():
+    print(line(15))
+    todo_list = setup()
+
+    todo_list.mark_done('Go to gym')
+    print(todo_list)
+
+    try:
+        todo_list.mark_done('Feed cat')
+    except IndexError:
+        print('Expected IndexError: Got it!')
+
+
 def tests():
     empty_todo_list = TodoList('Nothing Doing')
     step_1()
@@ -351,6 +371,7 @@ def tests():
     step_12()
     step_13()
     step_14(empty_todo_list)
+    step_15()
 
 
 if __name__ == "__main__":
