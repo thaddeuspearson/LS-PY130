@@ -17,6 +17,11 @@ class TestTodoList(unittest.TestCase):
     def test_length(self):
         self.assertEqual(3, len(self.todos))
 
+    def test_to_list(self):
+        self.assertIsInstance(self.todos.to_list(), list)
+        self.assertEqual([self.todo1, self.todo2, self.todo3],
+                         self.todos.to_list())
+
 
 if __name__ == "__main__":
     unittest.main()
