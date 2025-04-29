@@ -13,9 +13,9 @@ def build_profile(first_name: str, last_name: str, **kwargs) -> dict:
     return profile
 
 
-assert build_profile("Max", "Hawkins", location="San Francisco", 
+assert build_profile("Max", "Hawkins", location="San Francisco",
                      field="Software Engineering") == {
-    'first_name': 'Max', 
+    'first_name': 'Max',
     'last_name': 'Hawkins',
     'location': 'San Francisco',
     'field': 'Software Engineering'

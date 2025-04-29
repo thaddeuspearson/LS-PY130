@@ -1,5 +1,5 @@
 """
-Unpack the first two elements from a list and store the remaining elements in 
+Unpack the first two elements from a list and store the remaining elements in
 another list.
 """
 
