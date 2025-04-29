@@ -35,6 +35,9 @@ class TestTodoList(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.todos.add("Billy Bob Thornton")
 
+    def test_todo_at(self):
+        with self.assertRaises(IndexError):
+            self.todos.todo_at(4)
 
 if __name__ == "__main__":
     unittest.main()
