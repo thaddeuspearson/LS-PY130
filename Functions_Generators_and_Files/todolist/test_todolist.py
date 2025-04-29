@@ -28,6 +28,9 @@ class TestTodoList(unittest.TestCase):
     def test_last(self):
         self.assertEqual(self.todo3, self.todos.last())
 
+    def test_all_done(self):
+        self.assertFalse(self.todos.all_done())
+
 
 if __name__ == "__main__":
     unittest.main()
