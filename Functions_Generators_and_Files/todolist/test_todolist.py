@@ -22,6 +22,9 @@ class TestTodoList(unittest.TestCase):
         self.assertEqual([self.todo1, self.todo2, self.todo3],
                          self.todos.to_list())
 
+    def test_first(self):
+        self.assertEqual(self.todo1, self.todos.first())
+
 
 if __name__ == "__main__":
     unittest.main()
