@@ -31,6 +31,10 @@ class TestTodoList(unittest.TestCase):
     def test_all_done(self):
         self.assertFalse(self.todos.all_done())
 
+    def test_add_invalid(self):
+        with self.assertRaises(TypeError):
+            self.todos.add("Billy Bob Thornton")
+
 
 if __name__ == "__main__":
     unittest.main()
