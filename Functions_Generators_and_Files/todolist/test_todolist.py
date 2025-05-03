@@ -43,7 +43,13 @@ class TestTodoList(unittest.TestCase):
         with self.assertRaises(IndexError):
             self.todos.mark_done_at(5)
         self.todos.mark_done_at(1)
-        self.assertTrue(self.todo2)
+        self.assertTrue(self.todo2.done)
+
+    def test_mark_undone_at(self):
+        with self.assertRaises(IndexError):
+            self.todos.mark_undone_at(5)
+        self.todos.mark_undone_at(1)
+        self.assertFalse(self.todo2.done)
 
 if __name__ == "__main__":
     unittest.main()
