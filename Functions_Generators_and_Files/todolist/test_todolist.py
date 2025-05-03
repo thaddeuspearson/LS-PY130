@@ -39,5 +39,11 @@ class TestTodoList(unittest.TestCase):
         with self.assertRaises(IndexError):
             self.todos.todo_at(4)
 
+    def test_mark_done_at(self):
+        with self.assertRaises(IndexError):
+            self.todos.mark_done_at(5)
+        self.todos.mark_done_at(1)
+        self.assertTrue(self.todo2)
+
 if __name__ == "__main__":
     unittest.main()
