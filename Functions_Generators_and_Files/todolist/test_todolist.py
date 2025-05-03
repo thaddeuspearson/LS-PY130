@@ -55,5 +55,12 @@ class TestTodoList(unittest.TestCase):
         self.todos.mark_all_done()
         self.assertTrue(self.todos.all_done())
 
+    def test_remove_at(self):
+        with self.assertRaises(IndexError):
+            self.todos.remove_at(5)
+        todo = self.todos.remove_at(2)
+        self.assertEqual(2, len(self.todos))
+        self.todos.add(todo)
+
 if __name__ == "__main__":
     unittest.main()
