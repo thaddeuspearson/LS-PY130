@@ -51,5 +51,9 @@ class TestTodoList(unittest.TestCase):
         self.todos.mark_undone_at(1)
         self.assertFalse(self.todo2.done)
 
+    def test_mark_all_done(self):
+        self.todos.mark_all_done()
+        self.assertTrue(self.todos.all_done())
+
 if __name__ == "__main__":
     unittest.main()
