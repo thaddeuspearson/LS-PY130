@@ -88,6 +88,10 @@ class TestTodoList(unittest.TestCase):
         self.assertEqual(expected, str(self.todos))
         self.todos.mark_all_undone()
 
+    def test_each(self):
+        expected = []
+        self.todos.each(lambda t: expected.append(isinstance(t, Todo)))
+        self.assertTrue(all(expected))
 
 
 if __name__ == "__main__":
