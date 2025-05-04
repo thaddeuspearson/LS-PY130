@@ -64,10 +64,31 @@ class TestTodoList(unittest.TestCase):
 
     def test_str(self):
         expected = (
-            f"----- {self.todos.title} -----\n" +
-            "\n".join(str(todo) for todo in self.todos.todos)
+            "----- Today's Todos -----\n"
+            "[ ] Buy milk\n"
+            "[ ] Clean room\n"
+            "[ ] Go to the gym"
         )
         self.assertEqual(expected, str(self.todos))
+
+    def test_str_done_todo(self):
+        self.todos.mark_done_at(0)
+        expected = "[X] Buy milk"
+        self.assertEqual(expected, str(self.todos.first()))
+        self.todos.mark_undone_at(0)
+
+    def test_str_all_done_todos(self):
+        self.todos.mark_all_done()
+        expected = (
+            "----- Today's Todos -----\n"
+            "[X] Buy milk\n"
+            "[X] Clean room\n"
+            "[X] Go to the gym"
+        )
+        self.assertEqual(expected, str(self.todos))
+        self.todos.mark_all_undone()
+
+
 
 if __name__ == "__main__":
     unittest.main()
