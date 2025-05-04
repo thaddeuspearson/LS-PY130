@@ -96,7 +96,7 @@ class TestTodoList(unittest.TestCase):
     def test_select(self):
         self.todos.mark_done_at(0)
         expected = self.todos.select(lambda t: t.done)
-        self.assertEqual(self.todos.first(), expected.first())
+        self.assertEqual(expected.first(), self.todos.first())
 
 
 if __name__ == "__main__":
