@@ -93,6 +93,11 @@ class TestTodoList(unittest.TestCase):
         self.todos.each(lambda t: expected.append(isinstance(t, Todo)))
         self.assertTrue(all(expected))
 
+    def test_select(self):
+        self.todos.mark_done_at(0)
+        expected = self.todos.select(lambda t: t.done)
+        self.assertEqual(self.todos.first(), expected.first())
+
 
 if __name__ == "__main__":
     unittest.main()
