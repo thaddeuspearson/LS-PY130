@@ -57,7 +57,7 @@ class TodoList:
         self.todos[index].done = False
 
     def remove_at(self, index: int) -> None:
-        self.todos.pop(index)
+        return self.todos.pop(index)
 
     def mark_all_done(self) -> None:
         self.each(lambda todo: setattr(todo, 'done', True))
