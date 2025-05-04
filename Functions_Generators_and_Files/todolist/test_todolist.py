@@ -62,5 +62,12 @@ class TestTodoList(unittest.TestCase):
         self.assertEqual(2, len(self.todos))
         self.todos.add(todo)
 
+    def test_str(self):
+        expected = (
+            f"----- {self.todos.title} -----\n" +
+            "\n".join(str(todo) for todo in self.todos.todos)
+        )
+        self.assertEqual(expected, str(self.todos))
+
 if __name__ == "__main__":
     unittest.main()
