@@ -2,7 +2,7 @@
 Repository for working through Launch School's PY130 Course
 
 ## :green_book: Books
-1. 
+1. [Introduction to the Command Line](https://launchschool.com/books/command_line)
 
 ## :memo: Articles
 1. 
