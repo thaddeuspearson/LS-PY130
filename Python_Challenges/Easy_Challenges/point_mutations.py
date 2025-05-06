@@ -33,9 +33,11 @@ the shorter length.
 
 
 class DNA:
-    def __init__(self):
-        pass
+    def __init__(self, strand: str):
+        self.strand = strand
 
-    @property
-    def hamming_distance(self):
-        pass
+    def hamming_distance(self, other_strand: str) -> int:
+        return len([
+            pair for pair in zip(self.strand, other_strand)
+            if pair[0] != pair[1]
+        ])
