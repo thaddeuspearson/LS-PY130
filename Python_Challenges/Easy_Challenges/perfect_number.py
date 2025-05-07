@@ -40,7 +40,7 @@ class PerfectNumber:
         return [f for f in range(1, num) if num % f == 0]
 
     @classmethod
-    def classify(cls, number):
+    def classify(cls, number: int) -> str:
         if not isinstance(number, int) or number < 0:
             raise ValueError("Input must be a positive integer")
         factors = cls._get_factors(number)
