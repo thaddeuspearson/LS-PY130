@@ -54,7 +54,7 @@ class Meetup:
         self.month = month
 
     def day(self, day_name: str, occurance: str) -> date:
-        occurance_range = Meetup.OCCURANCES[occurance]
+        occurance_range = Meetup.OCCURANCES[occurance.lower()]
 
         for day in occurance_range:
             try:
