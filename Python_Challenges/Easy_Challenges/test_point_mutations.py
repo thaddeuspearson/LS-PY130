@@ -37,5 +37,6 @@ class TestDNAMutations(unittest.TestCase):
         self.assertEqual(4, dna.hamming_distance("AGACATCTTTCAGCCGCCGGATTAGGCAA"))
         self.assertEqual(1, dna.hamming_distance("AGG"))
 
+
 if __name__ == "__main__":
     unittest.main()
