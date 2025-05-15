@@ -10,3 +10,4 @@ Repository for working through Launch School's PY130 Course
 1. 
 
 ## :clipboard: Notes
+- [Python Virtual Environments](https://launchschool.com/lessons/a29e9831/assignments/29e1c477)
