@@ -1,6 +1,7 @@
 import unittest
 from clock import Clock
 
+
 class ClockTest(unittest.TestCase):
 
     def test_on_the_hour(self):
